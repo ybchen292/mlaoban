@@ -1,0 +1,134 @@
+<!--index.wxml-->
+<wxs module="numberUtil" src="../../utils/util.wxs"></wxs>
+<view class="category">
+  <view class="category_is">
+    <view class="category_item" wx:for="{{iconArray}}">
+      <navigator class="category_item_wrap" url="{{item.iconurl}}">
+        <view class="icon_wrap">
+          <image src="{{item.iconUrl}}" class="index_icon"></image>
+        </view>
+        <view class="category_item_text">
+          <text>{{item.iconText}}</text>
+        </view>
+      </navigator>
+    </view>
+    <button open-type="contact" class="counseling" style="right: 31%"></button >
+    <button open-type="contact" class="counseling" style="right: 11%"></button >
+  </view>
+</view>
+<view>
+  <swiper indicator-dots="{{indicatorDots}}" 
+    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" class="swiper_as">
+    <block wx:for="{{imgUrls}}">
+      <swiper-item>
+        <image src="{{item}}" class="slide-image" />
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+<view class="brand">
+  <swiper circular="true">
+    <swiper-item>
+      <view class="brand_noe">
+        <text>资金保障</text>
+        <text>保障买卖双方权益</text>
+        <text>交易期间全程托管资金担保</text>
+        <image src="../../image/icon_03.png"></image>
+      </view> 
+      <view class="brand_noe" style=" margin-left:10px;">
+        <text>法律保障</text>
+        <text>交易签署权威合同</text>
+        <text>提供专业法务咨询与援助</text>
+        <image src="../../image/icon_05.png"></image>
+      </view>
+     </swiper-item>
+     <swiper-item>
+      <view class="brand_noe">
+        <text>品牌保障</text>
+        <text>专注行业6年,数家</text>
+        <text>分部交易网店数量10万+</text>
+        <image src="../../image/icon_04.png"></image>
+      </view> 
+      <view class="brand_noe" style=" margin-left:10px;">
+        <text>交易保障</text>
+        <text>交易额满足条件</text>
+        <text>派有专人全程陪同交易+</text>
+        <image src="../../image/icon_02.png"></image>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>  
+<view class="tm_list">
+  <text class="biaoji"></text>
+  <text class="tm_title">天猫店铺</text>
+</view>
+<view class="details"> 
+  <view  wx:for="{{list}}" wx:key="list">
+    <view class="details_item" bindtap="bookTap" catchtap="shoptap" data-id="{{item.id}}">
+      <view class="details_list">
+        <text>
+          {{item.shoptitle}}
+        </text>
+      </view>
+      <view class="details_body">
+        <text>
+          类型：{{item.malltypename}}
+        </text>
+        <text>
+          类目：{{item.maincategoryname}}
+        </text>
+      </view>
+      <view class="details_body">
+        <text>
+          商标：{{item.brandcategoryname}}
+        </text>
+        <text>
+          地区：{{item.areaname}}
+        </text>
+      </view>
+      <view class="price">
+        <text style="float: right;">
+          ￥{{numberUtil.numberFormat(item.price/10000)}}万
+        </text>
+      </view>
+    </view>   
+  </view>
+  <view bindtap="navigateDetail"  class="details_more">
+      <image src="../../image/icon_10.png"></image>
+      查看更多
+  </view>
+  <view class="bottom">
+      <view class="list_sa">
+         <view class="bottom_list" wx:for="{{bottom}}">
+          <navigator class="" url="{{item.botturl}}">
+            <view class="">
+              <text>{{item.bottText}}</text>
+            </view>
+          </navigator>
+        </view>
+        <view class="bottom_list">
+          <button open-type="contact" style="opacity: 0;width: 100%;height: 80rpx;display:block;z-index:999;"></button >
+          <text class="yido">投诉建议</text>
+        </view>
+        <view class="bottom_list">
+          <button open-type="contact"style="opacity: 0;width: 100%;height: 80rpx;display:block;z-index:999;">联系客服</button >
+          <text class="yido">联系客服</text>
+        </view>
+      </view>
+      <view class="contact">
+        <text>热线：400-611-8288</text>
+        <text>邮箱：mlaoban@qq.com</text>
+      </view>
+      <view class="bottom_img" wx:for="{{bottomImg}}">
+        <navigator url="{{item.botturl}}">
+          <view>
+            <image src="{{item.imgurl}}"></image>
+          </view> 
+        </navigator>
+      </view> 
+      <view class="information">
+        <text>copyright 2017-2021 湖南通亮信息有限公司 版权所有</text>
+        <text>湘ICP备17002309号</text>
+      </view>
+  </view>
+</view>

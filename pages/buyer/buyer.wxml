@@ -1,0 +1,25 @@
+<view class="main">
+  <view class="main_to">
+    <view class="center">
+      <text>淘宝店铺出售流程</text>
+    </view>
+    <view class="buyer">
+      尊敬的用户，为了向您用户提供优质的服务、安全的虚拟交易环境，保证7×24小时的专业客户服务，让用户在这里享受到更愉快的交易体验，安全、高效、专业、贴心的服务质量。尊敬的用户，为了向您用户提供优质的服务、安全的虚拟交易环境，保证7×24小时的专业客户服务，让用户在这里享受到更愉快的交易体验，安全、高效、专业、贴心的服务质量。尊敬的用户，为了向您用户提供优质的服务、安全的虚拟交易环境，保证7×24小时的专业客户服务，让用户在这里享受到更愉快的交易体验，安全、高效、专业、贴心的服务质量。
+    </view>
+    <view class="ysar">
+      <view class="resolved">
+        <image src="../images/solve.png"></image>
+        <text>已解决</text>
+      </view>
+      <view class="unresolved">
+        <image src="../images/solve_1.png"></image>
+        <text>未解决</text>
+      </view>
+    </view>
+  </view>
+  <button open-type="contact" class="contact"></button>
+  <view class="counseling">
+    <image src="../images/kf.png"></image>
+    <text>联系客服</text>
+  </view>
+</view>

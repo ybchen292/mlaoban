@@ -1,0 +1,29 @@
+<view class="main">
+  <form bindsubmit="formSubmit">
+    <view class="section section_gap">
+      <radio-group class="group" bindchange="radioChange">
+        <view class="label-2" wx:for="{{radioItems}}">
+          <label class="label-2__text" for="{{item.name}}">
+            <radio id="{{item.name}}" hidden value="{{item.name}}" checked="{{item.checked}}"></radio>
+            <view class="label-2__icon">
+              <view class="label-2__icon-checked" style="opacity:{{item.checked ? 1: 0}}"></view>
+            </view>
+            <text>{{item.name}}</text>
+          </label>
+        </view> 
+      </radio-group>
+    </view>
+    <view class="name">
+      <input type="text" data-name='name' value="{{name}}" bindinput='verification' name="name" placeholder="请输入姓名" placeholder-class="place-holder" maxlength="6"></input>
+    </view>
+    <view class="phone">
+      <input type="text" value="{{mobile}}" data-name='mobile' bindinput='verification' name="mobile" placeholder="请输入手机号码" placeholder-class="place-holder" maxlength="11"></input>
+    </view>
+    <view class="yourWant">
+      <textarea placeholder="请输入网店地址或旺旺号" value="{{selldesc}}" data-name='selldesc' bindinput='verification' name="selldesc" placeholder-class="place-holder" maxlength="150"></textarea>
+    </view>
+    <view class="button">
+      <button form-type="submit" type="button">提交</button>
+    </view>
+  </form>  
+</view>

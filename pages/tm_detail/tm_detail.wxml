@@ -1,0 +1,286 @@
+<wxs module="numberUtil" src="../../utils/util.wxs"></wxs>
+<view class="main">
+    <view class="header">
+        <view class="title">
+            {{detail.shoptitle}}
+        </view>
+        <view class="show">
+            <view class="top">
+                <view>年　费：<text>￥{{detail.techfee}}</text></view>
+                <view>
+                <image src="../images/star.png" style="width:32rpx;height:32rpx;"></image>
+                收藏
+                </view>
+            </view>
+            <view class="down">
+                <view>消保金：<text>￥{{detail.depositmoney}}</text></view>
+                <view>￥{{numberUtil.numberFormat(detail.price/10000)}}万</view>
+            </view>
+        </view>
+        <!-- 分隔符 -->
+        <view class="incise-w"></view>
+        <!-- 标签 -->
+        <view class="melabel">
+            <text wx:if="{{length > 0}}">{{detail.bookmark}}</text>
+            <view wx:else></view>
+        </view>
+    </view>
+
+    <!-- 编号 -->
+    <view class="serial">
+        <view class="title">网店编号：{{detail.shopcode}}</view>
+        <view class="content">
+            <view class="item">
+                <view>主营类目：<text>{{detail.categoryname}}</text></view>
+                <view>商城类型：<text>{{detail.malltypename}}</text></view>
+            </view>
+            <view class="item">
+                <view>商标类型：<text>{{detail.brandcategoryname}}</text></view>
+                <view>所在地区：<text>{{detail.areaname}}</text></view>
+            </view>
+            <view class="item">
+                <view>商标属性：<text>{{detail.brandbelong}}</text></view>
+                <view>
+                  纳税类型：
+                  <text wx:if="{{detail.payduty == '1'}}">一般纳税人</text>
+                  <text wx:elif="{{detail.payduty == '2'}}">小规模纳税人</text>
+                  <text wx:else>一般纳税人</text>
+                </view>
+            </view>
+            <view class="item">
+                <view>是否贷款：
+                  <text wx:if="{{detail.isloan == '0'}}">否</text>
+                  <text wx:else="">有</text>
+                </view>
+                <view>是否带货：<text>否</text></view>
+            </view>
+            <view class="item">
+                <view>连带过户：<text>是</text></view>
+                <view>提供货源：<text>否</text></view>
+            </view>
+            <view class="item">
+                <view>入驻时间：<text></text></view>
+                <view>收藏人气：<text>{{detail.collectcount}}</text></view>
+            </view>
+            <view class="item">
+                <view>售假违规：<text>{{detail.scorefake}}分</text></view>
+                <view>一般违规：<text>{{detail.scorecommon}}分</text></view>
+            </view>
+            <view class="item">
+                <view>严重违规：<text>{{detail.scoregrave}}分</text></view>
+                <!-- <view>主营类目：<text>服饰鞋包</text></view> -->
+            </view>
+        </view>
+    </view>
+
+    <!-- 顾问 -->
+    <view class="counselor" wx:for="{{issell}}" wx:key="issell">
+        <view class="left">
+            <image src="{{item.headurl}}"  style="width:160rpx;height:100%;"></image>
+        </view>
+        <view class="center">
+            <view>金牌顾问 - {{item.workername}}</view>
+            <view><text>电话：{{item.mobile}} </text></view>
+            <view><text>Q Q：{{item.qq}} </text></view>
+        </view>
+        <view class="right">
+            <view class="item">
+                <image src="../images/counselor_tel.png" style="width:36rpx;height:36rpx"></image>
+                联系
+            </view>
+        </view>
+    </view>
+
+    <!-- 卖家描述 -->
+    <view class="describe">
+        <view class="title">
+            <text bindtap="skiptap" data-id="mjms">卖家描述</text>
+            <text bindtap="skiptap" data-id="dpjt">店铺截图</text>
+            <text bindtap="skiptap" data-id="qyxx">企业信息</text>
+            <text bindtap="skiptap" data-id="gmlc">购买流程</text>
+        </view>
+        <!-- 分割符 -->
+        <view class="incise-w"></view>
+        <view class="content">
+            <view class="content-title">
+                <view></view>
+                <view class="mjms">卖家描述</view>
+            </view>
+            <view class="down">
+                {{detail.shopdesc}}
+            </view>
+        </view>
+    </view>
+
+    <!-- 店铺截图 -->
+    <view class="shot">
+        <view class="title">
+                <view></view>
+                <view class="dpjt">店铺截图</view>
+        </view>
+        <view class="banner">
+            <swiper autoplay="true" circular="true" style="height:340rpx">
+                <swiper-item>
+                    <image bindtap="bannertap" data-src="{{detail.l_TMaoShopPhoto}}" src="{{detail.l_TMaoShopPhoto}}"  mode="widthFix" style="width:100%"></image>
+                </swiper-item>
+            </swiper>
+        </view>
+    </view>
+
+    <!-- 企业信息 -->
+    <view class="companymsg">
+        <view class="title">
+                <view></view>
+                <view class="qyxx">企业信息</view>
+        </view>
+        <view class="msg">
+            <view class="content">
+                <view class="item">
+                    <view>经营状态：<text>{{detail.companystate}}</text></view>
+                    <view style="text-overflow: ellipsis;overflow: hidden;white-space: nowrap;">公司类型：<text>{{detail.companytype}}</text></view>
+                </view>
+                <view class="item">
+                    <view>成立时间：<text>{{detail.companytime}}</text></view>
+                    <view>注册资本：
+                      <text >￥{{detail.regcapital}}万</text>
+                    </view>
+                </view>
+                <view class="item">
+                    <view>股东人数：<text>{{detail.partnernum}}</text></view>
+                    <view>纳税类型：
+                      <text wx:if="{{detail.payduty == '1'}}">一般纳税人</text>
+                      <text wx:elif="{{detail.payduty == '2'}}">小规模纳税人</text>
+                      <text wx:else>一般纳税人</text>
+                    </view>
+                </view>
+                <view class="item">
+                    <view>商标类型：<text>{{detail.brandcategoryname}}</text></view>
+                    <view>商标大类：<text>{{detail.brandkind}}类</text></view>
+                </view>
+                <view class="item">
+                    <view>商标属性：<text>{{detail.brandbelong}}</text></view>
+                    <view>申请时间：<text>{{detail.shoptime}}</text></view>
+                </view>
+                <view class="item">
+                    <view>连带过户：<text>是</text></view>
+                    <view>经营状态：<text>在售</text></view>
+                </view>
+            </view>
+        </view>
+        <view class="dredge">
+            已开通类目：
+            <text>{{detail.openkind}}</text>
+        </view>
+        <view class="evaluate">
+            <view class="item">
+                宝贝与描述相符
+                <view>高</view>
+            </view>
+            <view class="item">
+                卖家的服务态度
+                <view>高</view>
+            </view>
+            <view class="item">
+                卖家的发货速度
+                <view>高</view>
+            </view>
+        </view>
+    </view>
+
+    <!-- 购买流程 -->
+    <view class="buy">
+        <view class="title">
+            <view></view>
+            <view class="gmlc">购买流程</view>
+        </view>
+        <view class="content">
+            <view class="item">
+                <view class="item-child">
+                    <view>01</view>
+                    <view>
+                        <text>选择网店</text>
+                        <text>选择适合的网店</text>
+                    </view>
+                </view>
+                <view class="item-child">
+                    <view>02</view>
+                    <view>
+                        <text>选择网店</text>
+                        <text>选择适合的网店</text>
+                    </view>
+                </view>
+            </view>
+            <!-- 分割符 -->
+            <view class="incise-w"></view>
+
+            <view class="item">
+                <view class="item-child">
+                    <view>03</view>
+                    <view>
+                        <text>选择网店</text>
+                        <text>选择适合的网店</text>
+                    </view>
+                </view>
+                <view class="item-child">
+                    <view>04</view>
+                    <view>
+                        <text>选择网店</text>
+                        <text>选择适合的网店</text>
+                    </view>
+                </view>
+            </view>
+            <!-- 分割符 -->
+            <view class="incise-w"></view>
+
+            <view class="item">
+                <view class="item-child">
+                    <view>05</view>
+                    <view>
+                        <text>选择网店</text>
+                        <text>选择适合的网店</text>
+                    </view>
+                </view>
+                <view class="item-child">
+                    <view>06</view>
+                    <view>
+                        <text>选择网店</text>
+                        <text>选择适合的网店</text>
+                    </view>
+                </view>
+            </view>
+            <!-- 竖切割符 -->
+            <view class="incise-h"></view>
+        </view>
+    </view>
+
+    <!-- 推荐店铺 -->
+    <view class="shop">
+        <view class="title">
+            <view></view>
+            <view>推荐店铺</view>
+        </view>
+        <view class="shop-item" wx:for="{{list}}" wx:key="list" catchtap="shoptap" data-id="{{item.id}}">
+            <view class="item-top">
+                <text>{{item.cnshopdesc}}</text>
+            </view>
+            <view class="item-down">
+                <view>
+                    <view>类型：{{item.malltypename}}</view>
+                    <view>商标：{{item.maincategoryname}}</view>
+                </view>
+                <view>
+                    <view>类目：{{item.brandcategoryname}}</view>
+                    <view>地区：{{item.areaname}}</view>
+                </view>
+                <view>
+                    <text>￥{{item.price/10000}}万</text>
+                </view>
+            </view>
+        </view>
+    </view>
+    <!-- 遮罩 -->
+    <view class="shade" wx:if="{{isshade}}" bindtap="shadetap">
+        <image src="{{shadeimg}}" style="width:640rpx;height:480rpx;" catchtap="shadeimgtap" ></image>
+    </view>
+
+</view>

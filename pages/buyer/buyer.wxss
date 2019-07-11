@@ -1,0 +1,91 @@
+.main{
+  position: fixed;
+  display: flex;
+  flex-direction:column;
+  width: 100%;
+  height: 100%;
+  background-color: #f7f7f7;
+}
+.main_to{
+  width: 100%;
+  height: 740rpx;
+  background-color: #fff;
+  margin-top: 1px;
+}
+.center{
+  width: 92%;
+  height: 100rpx;
+  margin: 0 auto;
+  font-size: 32rpx;
+  line-height: 100rpx;
+  border-bottom: 1px solid #d6d6d6;
+  color: #282828;
+}
+.buyer {
+  width: 92%;
+  margin: 0 auto;
+  font-size: 26rpx;
+  color: #282828;
+  text-indent: 56rpx;
+  text-align: left;
+  margin-top: 30rpx;
+  margin-bottom: 60rpx;
+}
+.ysar{
+  width: 420rpx;
+  height: 70rpx;
+  margin: 0 auto;
+}
+.resolved{
+  width: 178rpx;
+  height: 68rpx;
+  border: 1px solid #e04e4e;
+  text-align: center;
+  line-height: 68rpx;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  color: #e04e4e;
+  float: left;
+}
+.resolved image,.unresolved image{
+  width: 36rpx;
+  height: 36rpx;
+  vertical-align: sub;
+  margin-right: 10rpx;
+}
+.unresolved{
+  width: 178rpx;
+  height: 68rpx;
+  border: 1px solid #d6d6d6;
+  text-align: center;
+  line-height: 68rpx;
+  border-radius: 12rpx;
+  font-size: 32rpx;
+  color: #999999;
+  float: right
+}
+.counseling{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #fff;
+  background-color: #e04e4e;
+}
+.counseling image{
+  width: 44rpx;
+  height: 44rpx;
+  vertical-align: middle;
+  margin-right: 10rpx;
+}
+.contact{
+  position: fixed;
+  bottom: 0;
+  opacity: 0;
+  width: 100%;
+  height: 80rpx;
+  display:block;
+  z-index:999;
+}

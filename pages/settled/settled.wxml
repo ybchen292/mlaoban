@@ -1,0 +1,19 @@
+<view class="main"> 
+  <form bindsubmit="formSubmit">
+    <view class="name">
+      <input type="text" data-name='name' bindinput='verification' name="name" placeholder="请输入姓名" value='{{name }}' placeholder-class="place-holder" maxlength="6"></input>
+    </view>
+    <view class="phone">
+      <input type="text" data-name='tel' bindinput='verification' name="tel" placeholder="请输入手机号码" value='{{tel}}' placeholder-class="place-holder" maxlength="11"></input>
+    </view>
+    <view class="QQ">
+      <input type="text" data-name='qq' bindinput='verification' name="qq" placeholder="请输入QQ号码" value='{{qq}}' placeholder-class="place-holder" maxlength="11"></input>
+    </view>
+    <view class="yourWant">
+      <textarea placeholder="请输入入驻说明" data-name='remark' bindinput='verification' name="remark" value='{{remark}}' placeholder-class="place-holder" maxlength="150"></textarea>
+    </view>
+    <view class="button">
+      <button form-type="submit" type="button">提交</button>
+    </view>
+  </form>  
+</view>
