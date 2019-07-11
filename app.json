@@ -1,0 +1,57 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/tianmao/tianmao",
+    "pages/tm_detail/tm_detail",
+    "pages/counseling/counseling",
+    "pages/approach/approach",
+    "pages/settled/settled",
+    "pages/putenter/putenter",
+    "pages/sellstores/sellstores",
+    "pages/helpcenter/helpcenter",
+    "pages/sellStore/sellStore",
+    "pages/purchase/purchase",
+    "pages/trademark/trademark",
+    "pages/category/category",
+    "pages/usercenter/usercenter",
+    "pages/helplist/helplist"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#d24a58",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/first_1.png",
+        "selectedIconPath": "image/first_2.png"
+      },
+      {
+        "pagePath": "pages/sellStore/sellStore",
+        "text": "出售",
+        "iconPath": "image/money_1.png",
+        "selectedIconPath": "image/money_2.png"
+      },
+      {
+        "pagePath": "pages/counseling/counseling",
+        "text": "客服",
+        "iconPath": "image/kefu_1.png",
+        "selectedIconPath": "image/kefu_2.png"
+      },
+      {
+        "pagePath": "pages/usercenter/usercenter",
+        "text": "我的",
+        "iconPath": "image/center_1.png",
+        "selectedIconPath": "image/center_2.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

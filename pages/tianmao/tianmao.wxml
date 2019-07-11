@@ -1,0 +1,139 @@
+<view class="main">
+    <view class="header">
+        <view class="top">
+            <view class="query">
+                <view class="left">
+                    <image src="../../image/ss.png" style="width:40rpx;height:40rpx;"></image>
+                    <input class="search" placeholder="请输入你想搜索的店铺" value="{{queryval}}" style="width:400rpx;padding-left:10rpx;" bindinput="searchval"></input>
+                </view>
+                <view class="right">
+                    <button size="mini" style="margin:0;padding:0;" bindtap="maorReset">
+                        <image src="../../image/xx.png" style="width:32rpx;height:32rpx;"></image>
+                    </button>
+                    <view class="incise-h" style="width:1px; height:40rpx;"></view>
+                    <button size="mini" style="margin:0;" bindtap="maoSearch">搜索</button>
+                </view>
+            </view>
+        </view>
+        <view class="classify">
+            <view class="item" data-item="1" bindtap="classifytap">
+                <block wx:if="{{classifyblk1}}">
+                    <text>价格</text>
+                    <image src="../../image/list_22.png" style="width:30rpx;height:20rpx;"></image>
+                </block>
+                <block wx:else>
+                    <text style="color:red;">价格</text>
+                    <image src="../../image/list_25.png" style="width:30rpx;height:20rpx;"></image>
+                </block>
+            </view>
+            <view class="item" data-item="2" bindtap="classifytap">
+                <block wx:if="{{classifyblk2}}">
+                    <text>排序</text>
+                    <image src="../../image/list_22.png" style="width:30rpx;height:20rpx;"></image>
+                </block>
+                <block wx:else>
+                    <text style="color:red;">排序</text>
+                    <image src="../../image/list_25.png" style="width:30rpx;height:20rpx;"></image>
+                </block>
+            </view>
+            <view class="item" data-item="3" bindtap="classifytap">
+                <block wx:if="{{classifyblk3}}">
+                    <text>更多</text>
+                    <image src="../../image/list_22.png" style="width:30rpx;height:20rpx;"></image>
+                </block>
+                <block wx:else>
+                    <text style="color:red;">更多</text>
+                    <image src="../../image/list_25.png" style="width:30rpx;height:20rpx;"></image>
+                </block>
+            </view>
+        </view>
+        <!-- 分隔符 -->
+        <view class="incise-w"></view>
+    </view>
+    <!-- 内容 -->
+    <view class="content">
+        <!-- 价格 -->
+        <block wx:if="{{!classifyblk1}}">
+            <view class="price">
+                <view class="condition">
+                    <view class="item">
+                        <text wx:for="{{priceitems}}" wx:key="{{index}}" style="color:{{item.color==true?'#ff0000':'#666666'}}" bind:tap="priceitemstap" data-sign="{{item.sign}}">
+                            {{item.item}}
+                        </text>
+                    </view>
+                    <view class="item">
+                        <text>自定义</text>
+                        <input></input>
+                        <input></input>
+                        <button size="mini" type="warn">确定</button>
+                    </view>
+                    <view class="incise-w"></view>
+                </view>
+            </view>
+        </block>
+        <!-- 排序 -->
+        <block wx:elif="{{!classifyblk2}}">
+            <view class="order">
+                <view class="condition">
+                    <text>默认排序</text>
+                    <text>最新发布</text>
+                    <text>最低价格</text>
+                    <text>最多浏览</text>
+                </view>
+                <view class="incise-w"></view>
+            </view>
+        </block>
+        <!-- 更多 -->
+        <block wx:elif="{{!classifyblk3}}">
+            <view class="more">
+                <scroll-view style="width:100%;height:900rpx;" scroll-y="true">
+                    <view class="condition">
+                        <block wx:for="{{listval}}" wx:for-item="item1" wx:for-index="index1" wx:key="{{index1}}">
+                            <view class="item">
+                                <view class="title">
+                                    <text>{{item1.title}}</text>
+                                </view>
+                                <view class="content" wx:for="{{item1.wrap}}" wx:for-item="item2" wx:for-index="index2" wx:key="{{index2}}">
+                                    <text data-id="{{index1}}{{index2}}{{index3}}" style="color:{{item3.color==true?'#ff0000':'#666666'}};border:1px solid {{item3.color==true?'#ff0000':'#666666'}}" wx:for="{{item2}}" wx:for-item="item3" wx:for-index="index3" wx:key="{{index3}}" bindtap="more" data-sign="{{item3.sign}}">
+                                        {{item3.item}}
+                                    </text>
+                                </view>
+                            </view>
+                            <view class="incise-w"></view>
+                        </block>
+                    </view>
+                </scroll-view>
+                <view class="down">
+                    <button bindtap="reset">清空筛选条件</button>
+                    <button bindtap="confirm" type="warn">确定</button>
+                </view>
+            </view>
+        </block>
+        <!-- 主内容 -->
+        <block wx:else>
+            <view class="shop" url="../tm_detail/tm_detail">
+                <view class="shop-item" wx:for="{{shopitems}}" wx:key="{{idnex}}" catchtap="shoptap" data-id="{{item.id}}">
+                    <view class="item-top">
+                        <rich-text style="" nodes="<div style='overflow:hidden;text-overflow: ellipsis;white-space: nowrap;'>{{item.shoptitle}}</div>"></rich-text>
+                    </view>
+                    <view class="item-down">
+                        <view>
+                            <view>类型：{{item.malltypename}}</view>
+                            <view>商标：{{item.brandcategoryname}}</view>
+                        </view>
+                        <view>
+                            <view>
+                                <text>类目：</text>
+                                <rich-text style="display:inline-block;width:20rpx;" class="" nodes="{{item.maincategoryname}}"></rich-text>
+                            </view>
+                            <view>人气：{{item.collectcount}}</view>
+                        </view>
+                        <view>
+                            <text>￥{{item.price/10000}}万</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

@@ -1,0 +1,17 @@
+<view class="main">
+  <view class="name">
+    <input type="text" placeholder="请输入姓名" placeholder-class="place-holder" maxlength="6"></input>
+  </view>
+  <view class="phone">
+    <input type="text" placeholder="请输入手机号码" placeholder-class="place-holder" maxlength="11"></input>
+  </view>
+  <view class="QQ">
+    <input type="text" placeholder="请输入QQ号码" placeholder-class="place-holder" maxlength="11"></input>
+  </view>
+  <view class="yourWant">
+    <textarea placeholder="请输入入驻说明" placeholder-class="place-holder" maxlength="150"></textarea>
+  </view>
+  <view class="button">
+    <button type="button">提交</button>
+  </view>
+</view>
