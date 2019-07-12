@@ -80,17 +80,21 @@ page{
 
 
 .header .melabel{
-    margin: 0 30rpx;
-    display: flex;
-    justify-content: space-between;
+    width: 92%;
+    margin: 0 auto;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 100rpx;
+    line-height: 100rpx; 
 }
 
 .header .melabel text{
     border: 1px solid #ccc;
     border-radius: 10px;
     padding: 10rpx;
-    margin: 40rpx 0;
     color: #999999;
+    margin: 40rpx 0 40rpx 10rpx;
 }
 
 .serial{

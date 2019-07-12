@@ -6,11 +6,11 @@ Page({
      */
 
     data: {
-        queryval: '',//关键字
-        issearch: false,//是否点击了查询
-        urldatas: '',//条件的参数  
-        pagenum: '1',//当前的页数
-        shopitems: [],//主内容的数据
+        queryval: '', //关键字
+        issearch: false, //是否点击了查询
+        urldatas: '', //条件的参数  
+        pagenum: '1', //当前的页数
+        shopitems: [], //主内容的数据
         priceitems: [
             { color: true, item: '全部', sign: '' },
             { color: false, item: '5万以内', sign: 'p1' },
@@ -21,9 +21,9 @@ Page({
         classifyblk1: true,
         classifyblk2: true,
         classifyblk3: true,
-        listval: [
-            {
-                title: '商城类型', wrap: [
+        listval: [{
+                title: '商城类型',
+                wrap: [
                     [
                         { color: true, item: '不限', sign: '' },
                         { color: false, item: '旗舰店', sign: 'm1' },
@@ -33,7 +33,8 @@ Page({
                 ]
             },
             {
-                title: '商城类型', wrap: [
+                title: '商城类型',
+                wrap: [
                     [
                         { color: true, item: '不限', sign: '' },
                         { color: false, item: 'R标', sign: 'b1' },
@@ -42,7 +43,8 @@ Page({
                 ]
             },
             {
-                title: '所属行业', wrap: [
+                title: '所属行业',
+                wrap: [
                     [
                         { color: true, item: '不限', sign: '' },
                         { color: false, item: '服饰鞋包', sign: 'k101' },
@@ -70,7 +72,8 @@ Page({
                 ]
             },
             {
-                title: '商城类型', wrap: [
+                title: '商城类型',
+                wrap: [
                     [
                         { color: true, item: '不限', sign: '' },
                         { color: false, item: '01类', sign: 'c1' },
@@ -159,7 +162,8 @@ Page({
             //     ],
             // },
             {
-                title: '扣分情况', wrap: [
+                title: '扣分情况',
+                wrap: [
                     [
                         { color: true, item: '不限', sign: '' },
                         { color: false, item: '全无扣分', sign: 's1' },
@@ -172,7 +176,8 @@ Page({
                 ],
             },
             {
-                title: '纳税资质', wrap: [
+                title: '纳税资质',
+                wrap: [
                     [
                         { color: true, item: '不限', sign: '' },
                         { color: false, item: '一般纳税人', sign: 'd1' },
@@ -182,7 +187,8 @@ Page({
                 ],
             },
             {
-                title: '是否带货', wrap: [
+                title: '是否带货',
+                wrap: [
                     [
                         { color: true, item: '不限', sign: '' },
                         { color: false, item: '是否带货', sign: 'g1' },
@@ -192,7 +198,8 @@ Page({
                 ]
             },
             {
-                title: '提供货源', wrap: [
+                title: '提供货源',
+                wrap: [
                     [
                         { color: true, item: '不限', sign: '' },
                         { color: false, item: '不提供货', sign: 'f1' },
@@ -202,7 +209,8 @@ Page({
                 ]
             },
             {
-                title: '商标过户', wrap: [
+                title: '商标过户',
+                wrap: [
                     [
                         { color: true, item: '不限', sign: '' },
                         { color: false, item: '可过户', sign: 'e2' },
@@ -220,7 +228,8 @@ Page({
             //     ]
             // },
             {
-                title: '所在地区', wrap: [
+                title: '所在地区',
+                wrap: [
                     [
                         { color: true, item: '不限', sign: '' },
                         { color: false, item: '华东地区', sign: 'a3' },
@@ -238,7 +247,7 @@ Page({
         ]
     },
     // 更多
-    more: function (e) {
+    more: function(e) {
         let id = e.target.dataset.id;
         let list = this.data.listval;
         let item1;
@@ -268,18 +277,18 @@ Page({
         })
     },
     // 更多的确定
-    confirm: function () {
+    confirm: function() {
         let list = this.data.listval;
         let str = "";
         let items = this.data.priceitems;
-        items.forEach(function (val, index) {
+        items.forEach(function(val, index) {
             if (val.color && val.sign != "") {
                 str = val.sign + "-";
             }
         });
-        list.forEach(function (val1, index1) {
-            val1.wrap.forEach(function (val2, index2) {
-                val2.forEach(function (val3, index3) {
+        list.forEach(function(val1, index1) {
+            val1.wrap.forEach(function(val2, index2) {
+                val2.forEach(function(val3, index3) {
                     if (val3.color == true && !(index2 == 0 && index3 == 0)) {
                         str += val3.sign + "-";
                     }
@@ -298,18 +307,18 @@ Page({
         }
     },
     // 更多的重置
-    reset: function () {
+    reset: function() {
         let list = this.data.listval;
         let items = this.data.priceitems;
         let str = "";
-        items.forEach(function (val, index) {
+        items.forEach(function(val, index) {
             if (val.color && val.sign != "") {
                 str = val.sign + "-";
             }
         });
-        list.forEach(function (val1, index1) {
-            val1.wrap.forEach(function (val2, index2) {
-                val2.forEach(function (val3, index3) {
+        list.forEach(function(val1, index1) {
+            val1.wrap.forEach(function(val2, index2) {
+                val2.forEach(function(val3, index3) {
                     if (index2 == 0 && index3 == 0) {
                         val3.color = true;
                     } else {
@@ -327,7 +336,7 @@ Page({
         this.shopitem(false);
     },
     // 价格  排序  更多
-    classifytap: function (e) {
+    classifytap: function(e) {
         let num = e.currentTarget.dataset.item;
         if (num == 1) {
             this.setData({
@@ -350,11 +359,11 @@ Page({
         }
     },
     // 价格
-    priceitemstap: function (e) {
+    priceitemstap: function(e) {
         let sign = e.target.dataset.sign;
         let items = this.data.priceitems;
         let len = this.data.urldatas.length;
-        items.forEach(function (val, index) {
+        items.forEach(function(val, index) {
             if (val.sign == sign || index == 0) {
                 val.color = true;
             } else {
@@ -368,9 +377,9 @@ Page({
         } else {
             let str = "";
             let list = this.data.listval;
-            list.forEach(function (val1, index1) {
-                val1.wrap.forEach(function (val2, index2) {
-                    val2.forEach(function (val3, index3) {
+            list.forEach(function(val1, index1) {
+                val1.wrap.forEach(function(val2, index2) {
+                    val2.forEach(function(val3, index3) {
                         if (val3.color == true && !(index2 == 0 && index3 == 0)) {
                             str += val3.sign + "-";
                         }
@@ -393,7 +402,7 @@ Page({
 
     },
     // 主内容
-    shopitem: function (flag) {
+    shopitem: function(flag) {
         // 选择条件时展示前10条
         if (!flag) {
             this.data.pagenum = 1;
@@ -409,7 +418,7 @@ Page({
             header: {
                 'Content-Type': 'application/json'
             },
-            success: function (res) {
+            success: function(res) {
                 let datas;
                 // 是否关键字查询  区分后台返回数据的格式
                 if (_this.data.queryval.length > 0) {
@@ -421,13 +430,13 @@ Page({
                     shopitems: flag == true ? _this.data.shopitems.concat(datas) : datas
                 });
             },
-            error: function (err) {
+            error: function(err) {
                 console.log(err);
             }
         })
     },
     // 关键字查询
-    maoSearch: function () {
+    maoSearch: function() {
         if (!this.data.issearch) {
             this.data.pagenum = 1;
         } else {
@@ -452,7 +461,7 @@ Page({
             header: {
                 'Content-Type': 'application/json'
             },
-            success: function (res) {
+            success: function(res) {
                 let datas;
                 // 是否关键字查询  区分后台返回数据的格式
                 if (_this.data.queryval.length > 0) {
@@ -468,13 +477,13 @@ Page({
                     issearch: true
                 })
             },
-            fail: function (err) {
+            fail: function(err) {
                 console.log(err);
             }
         })
     },
     // 关键字查询的重置
-    maorReset: function () {
+    maorReset: function() {
         this.setData({
             queryval: "",
             issearch: false
@@ -482,7 +491,7 @@ Page({
         this.shopitem(false);
     },
     // 查询的值
-    searchval: function (e) {
+    searchval: function(e) {
         let val = e.detail.value;
         this.setData({
             queryval: val,
@@ -493,59 +502,59 @@ Page({
         }
     },
     // 主内容的点击事件
-    shoptap: function (e) {
+    shoptap: function(e) {
         let val = e.currentTarget.dataset.id;
         console.log(val);
-       wx.navigateTo({
-         url: `../tm_detail/tm_detail?id=${val}`,
-       })
+        wx.navigateTo({
+            url: `../tm_detail/tm_detail?id=${val}`,
+        })
     },
     /**
      * 生命周期函数--监听页面加载
      */
-    onLoad: function (options) {
+    onLoad: function(options) {
 
     },
 
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
-    onReady: function () {
+    onReady: function() {
         this.shopitem(false);
     },
 
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow: function () {
+    onShow: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面隐藏
      */
-    onHide: function () {
+    onHide: function() {
 
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
-    onUnload: function () {
+    onUnload: function() {
 
     },
 
     /**
      * 页面相关事件处理函数--监听用户下拉动作
      */
-    onPullDownRefresh: function () {
+    onPullDownRefresh: function() {
 
     },
 
     /**
      * 页面上拉触底事件的处理函数
      */
-    onReachBottom: function () {
+    onReachBottom: function() {
         if (this.data.issearch) {
             this.maoSearch();
         } else {
@@ -558,7 +567,7 @@ Page({
     /**
      * 用户点击右上角分享
      */
-    onShareAppMessage: function () {
+    onShareAppMessage: function() {
 
     },
 })
